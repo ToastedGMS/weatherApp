@@ -1,6 +1,5 @@
 // selectors
 const locationInput = document.querySelector('#location');
-const weatherDisplay = document.querySelector('#weatherDisplay');
 
 function addLocationToLink(val){
     // modifies the fetch link to include location inserted by the user
@@ -25,8 +24,8 @@ function getWeather(val){
 async function getWeatherReport(){
     try {
         let response = await getWeather(addLocationToLink(locationInput.value)); //waits for the returned response from the getWeather promise with the modified link passed to it
-        weatherDisplay.innerText = response; //displays response on screen
         console.log(response) //logs final result
+        return response; //returns response
     } catch(error){console.error(error)}; //logs any errors
 };
 
